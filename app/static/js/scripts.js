@@ -1,29 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", function(event) {
-  document.documentElement.setAttribute("data-theme", "light");
-
-  var themeSwitcher = document.getElementById("theme-switcher");
-
-  themeSwitcher.onclick = function() {
-    var currentTheme = document.documentElement.getAttribute("data-theme");
-    var switchToTheme = currentTheme === "dark" ? "light" : "dark"
-    document.documentElement.setAttribute("data-theme", switchToTheme);
-  }
-});*/
-
-/*НЕ ТРОГАТЬ*/
-
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   var savedTheme = localStorage.getItem("theme");
-//   document.documentElement.setAttribute("data-theme", savedTheme || "light");
-//   var themeSwitcher = document.getElementById("theme-switcher");
-//   themeSwitcher.onclick = function() {
-//     var currentTheme = document.documentElement.getAttribute("data-theme");
-//     var switchToTheme = currentTheme === "dark" ? "light" : "dark";
-//     document.documentElement.setAttribute("data-theme", switchToTheme);
-//     localStorage.setItem("theme", switchToTheme);
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function(event) {
   var savedTheme = localStorage.getItem("theme");
   var currentTheme = savedTheme || "light";
@@ -32,15 +6,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var themeSwitcher = document.getElementById("theme-switcher");
   var themeImage = document.getElementById("theme-image");
 
+  themeImage.src = currentTheme === "dark" ? "/static/img/off.png" : "/static/img/on.png";
+
+  var changeCount = 0; 
+  var resetTimeout;
+
   themeSwitcher.onclick = function() {
     var switchToTheme = currentTheme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", switchToTheme);
     localStorage.setItem("theme", switchToTheme);
 
-    // Изменяем путь к изображению в зависимости от текущей темы
     themeImage.src = switchToTheme === "dark" ? "/static/img/off.png" : "/static/img/on.png";
+    currentTheme = switchToTheme; 
 
+    changeCount++;
 
-    currentTheme = switchToTheme; // Обновляем текущую тему
+    if (changeCount >= 5) {
+      alert("Досить гратися світлом, а то прийде до тебе вночі ДТЕК і все відключить");
+      clearTimeout(resetTimeout); 
+      changeCount = 0; 
+    } else {
+      resetTimeout = setTimeout(function() {
+        changeCount = 0; 
+      }, 5000);
+    }
   }
 });
