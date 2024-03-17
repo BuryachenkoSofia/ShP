@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     localStorage.setItem("theme", switchToTheme);
 
     // Изменяем путь к изображению в зависимости от текущей темы
-    themeImage.src = switchToTheme === "dark" ? "/static/img/dark_image.png" : "/static/img/light_image.png";
+    themeImage.src = switchToTheme === "dark" ? "/static/img/off.png" : "/static/img/on.png";
 
 
     currentTheme = switchToTheme; // Обновляем текущую тему

@@ -11,7 +11,7 @@
   --busu-background: #588473;
   --background-color-menu:#588473;
   --background-color-menu-hover:#276857; 
-  --background-image-light-dark: url('{% static "light_image.png" %}');
+  --background-image-light-dark: url('{% static "on.png" %}');
 }
 
 [data-theme="dark"] {
@@ -25,7 +25,7 @@
   --background-color-menu: #2A534C;
   --background-color-menu-hover:#163737;
   --busu-background: #163737;
-  --background-image-light-dark:  url('{% static "dark_image.png" %}');
+  --background-image-light-dark:  url('{% static "off.png" %}');
   
 }
 html {
@@ -219,12 +219,12 @@ li {
 }
 
 #theme-image{
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  height: calc(820px/12);
+  width: calc(500px/12);
+
 }
 #theme-switcher{
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  margin-bottom:0px;
+  background: none;
+  border: none;
 }
