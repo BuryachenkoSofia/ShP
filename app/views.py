@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Article
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -34,5 +35,7 @@ def about(request):
 def sect(request):
     return render(request, 'app/sect.html')
 
+
+@login_required
 def profile(request):
   return render(request, 'app/profile.html')
