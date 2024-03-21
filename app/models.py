@@ -1,7 +1,8 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 class Article(models.Model):
     article_title = models.CharField('назва новини', max_length=200)
@@ -30,3 +31,9 @@ class Comment(models.Model):
     class Meta():
       verbose_name = 'Коментар'
       verbose_name_plural = 'Коментарі'
+
+
+class User(AbstractUser):
+    money = models.IntegerField('Респани', blank=True, default=0)
+
+    date_birth = models.DateTimeField(blank=True, null=True, verbose_name="День народження")
