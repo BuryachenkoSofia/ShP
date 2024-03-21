@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< Updated upstream
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import Article, Comment, User
 
@@ -19,3 +20,11 @@ class CustomUserAdmin(BaseUserAdmin):
 admin.site.register(Article)
 admin.site.register(Comment)
 admin.site.register(User, CustomUserAdmin)
+=======
+from django.contrib.auth.admin import UserAdmin
+from .models import Article, Comment, User
+
+admin.site.register(Article)
+admin.site.register(Comment)
+admin.site.register(User, UserAdmin)
+>>>>>>> Stashed changes

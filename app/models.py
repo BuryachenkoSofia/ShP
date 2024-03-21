@@ -2,7 +2,11 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
+<<<<<<< Updated upstream
 from django.db import models
+=======
+
+>>>>>>> Stashed changes
 
 class Article(models.Model):
     article_title = models.CharField('назва новини', max_length=200)

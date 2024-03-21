@@ -93,4 +93,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = reverse_lazy("app:profile")
 
 
+<<<<<<< Updated upstream
 AUTH_USER_MODEL='app.User'
+=======
+AUTH_USER_MODEL = 'app.User'
+>>>>>>> Stashed changes
